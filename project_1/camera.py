@@ -1,3 +1,4 @@
+import numpy as np
 import pygame as pg
 from matrix_operations import *
 from projection import Projection
@@ -49,7 +50,7 @@ class Camera:
     def change_fov(self, angle):
         self.h_fov += angle
         self.v_fov = self.h_fov * (self.render.HEIGHT / self.render.WIDTH)
-        self.render.projection = Projection(self.render)
+        self.render.projection.update_aspect_ratio()
 
     def camera_yaw(self, angle):
         rotate = rotate_y(angle)
