@@ -29,13 +29,13 @@ class Object3D:
         self.screen_projection()
 
     def screen_projection(self):
-        # multiply vertexes in order to postion and orients the 3D object
+        # multiply vertexes in order to position and orients the 3D object
         # relative to the camera
         vertexes = self.vertexes @ self.render.camera.camera_matrix()
-        # multiply the 3D vertexes by the projection matrix to get the 4D vertexes (homogeneus coordinates)
+        # multiply the 3D vertexes by the projection matrix to get the 4D vertexes (homogeneous coordinates)
         vertexes = vertexes @ self.render.projection.projection_matrix
         # divide the homogeneous coordinate by the w component in order to
-        # get the x, y, z coordinates in the Normalizewd Device Coordinate (NDC)
+        # get the x, y, z coordinates in the Normalized Device Coordinate (NDC)
         # vertexes /= vertexes[:, -1].reshape(-1, 1)
         vertexes /= vertexes[:, [-1]]
         # throw out the vertexes which are further away than 2.0 distance

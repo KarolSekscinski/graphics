@@ -14,7 +14,7 @@ class Projection:
         self.render = render
 
         # creating the matrix which will transform the 3D points
-        # from the camera space to the homogeneus coordinates
+        # from the camera space to the homogeneous coordinates
         m00 = 2 / (RIGHT - LEFT)
         m11 = 2 / (TOP - BOTTOM)
         m22 = (FAR + NEAR) / (FAR - NEAR)
@@ -45,7 +45,7 @@ class Projection:
         BOTTOM = -TOP
 
         # creating the matrix which will transform the 3D points
-        # from the camera space to the homogeneus coordinates
+        # from the camera space to the homogeneous coordinates
         m00 = 2 / (RIGHT - LEFT)
         m11 = 2 / (TOP - BOTTOM)
         m22 = (FAR + NEAR) / (FAR - NEAR)

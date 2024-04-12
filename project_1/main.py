@@ -1,4 +1,3 @@
-import pygame as pg
 from camera import *
 from projection import *
 from object_3d import *

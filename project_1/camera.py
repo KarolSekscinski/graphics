@@ -1,7 +1,5 @@
-import numpy as np
 import pygame as pg
 from matrix_operations import *
-from projection import Projection
 
 
 class Camera:
