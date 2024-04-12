@@ -36,9 +36,10 @@ class Object3D:
         vertexes = vertexes @ self.render.projection.projection_matrix
         # divide the homogeneous coordinate by the w component in order to
         # get the x, y, z coordinates in the Normalizewd Device Coordinate (NDC)
-        vertexes /= vertexes[:, -1].reshape(-1, 1)
+        # vertexes /= vertexes[:, -1].reshape(-1, 1)
+        vertexes /= vertexes[:, [-1]]
         # throw out the vertexes which are further away than 2.0 distance
-        vertexes[(vertexes > 2) | (vertexes < -2)] = 0
+        # vertexes[(vertexes > 2) | (vertexes < -2)] = 0
         # multiply the vertexes by the to_screen_matrix to get the actual screen coordinates
         vertexes = vertexes @ self.render.projection.to_screen_matrix
         vertexes = vertexes[:, :2]

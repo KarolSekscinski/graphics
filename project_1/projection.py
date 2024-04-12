@@ -4,6 +4,7 @@ import numpy as np
 
 class Projection:
     def __init__(self, render):
+        self.aspect_ratio = render.WIDTH / render.HEIGHT
         NEAR = render.camera.near_plane
         FAR = render.camera.far_plane
         RIGHT = math.tan(render.camera.h_fov / 2)
@@ -55,7 +56,3 @@ class Projection:
             [0, 0, m22, 1],
             [0, 0, m32, 0]
         ])
-
-    def update_aspect_ratio(self):
-        self.aspect_ratio = self.render.WIDTH / self.render.HEIGHT
-        self.update_projection_matrix()

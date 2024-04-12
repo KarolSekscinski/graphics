@@ -18,8 +18,8 @@ class SoftwareRender:
         self.camera = Camera(self, [0.5, 1, -4])
         self.projection = Projection(self)
         self.object = Object3D(self)
-        self.object.translate([0.2, 0.2, 0.2])
         self.object.rotate_y(math.pi / 6)
+        self.object.translate([0.2, 0.2, 0.2])
 
     def draw(self):
         self.screen.fill(pg.Color('black'))

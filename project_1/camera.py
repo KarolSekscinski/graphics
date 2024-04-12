@@ -50,7 +50,7 @@ class Camera:
     def change_fov(self, angle):
         self.h_fov += angle
         self.v_fov = self.h_fov * (self.render.HEIGHT / self.render.WIDTH)
-        self.render.projection.update_aspect_ratio()
+        self.render.projection.update_projection_matrix()
 
     def camera_yaw(self, angle):
         rotate = rotate_y(angle)
@@ -65,7 +65,7 @@ class Camera:
         self.up = self.up @ rotate
 
     def camera_matrix(self):
-        return self.translate_matrix() @ self.rotate_matrix()
+        return self.rotate_matrix() @ self.translate_matrix()
 
     def translate_matrix(self):
         x, y, z, w = self.position
